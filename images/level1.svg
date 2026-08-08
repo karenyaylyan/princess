@@ -13,6 +13,10 @@
       <stop offset="65%" stop-color="#B4483F"/>
       <stop offset="100%" stop-color="#8C1F3B"/>
     </radialGradient>
+    <pattern id="prisonStripes" patternUnits="userSpaceOnUse" width="10" height="10">
+      <rect width="10" height="10" fill="#EDE6DA"/>
+      <rect width="10" height="5" fill="#2B1E22"/>
+    </pattern>
   </defs>
   <rect width="640" height="480" fill="url(#sky1)"/>
   <circle cx="130" cy="70" r="40" fill="#F1C879" opacity="0.9"/>
@@ -93,10 +97,10 @@
   <g transform="translate(460 260)">
     <ellipse cx="0" cy="168" rx="42" ry="9" fill="#000" opacity="0.1"/>
     <!-- legs -->
-    <rect x="-22" y="108" width="16" height="62" rx="6" fill="#2B1E22"/>
-    <rect x="6" y="108" width="16" height="62" rx="6" fill="#2B1E22"/>
+    <rect x="-22" y="108" width="16" height="62" rx="6" fill="url(#prisonStripes)"/>
+    <rect x="6" y="108" width="16" height="62" rx="6" fill="url(#prisonStripes)"/>
     <!-- torso -->
-    <rect x="-32" y="40" width="64" height="76" rx="16" fill="#8C1F3B"/>
+    <rect x="-32" y="40" width="64" height="76" rx="16" fill="url(#prisonStripes)"/>
     <!-- extended arm holding ball -->
     <rect x="-70" y="55" width="42" height="16" rx="8" fill="#F0D0AE" transform="rotate(-8 -70 55)"/>
     <!-- the ball: clean sphere with highlight + seam lines, unmistakably a ball -->
@@ -108,7 +112,7 @@
       <circle cx="-6" cy="-6" r="4" fill="#fff" opacity="0.5"/>
     </g>
     <!-- other arm -->
-    <rect x="26" y="48" width="16" height="42" rx="8" fill="#8C1F3B" transform="rotate(14 26 48)"/>
+    <rect x="26" y="48" width="16" height="42" rx="8" fill="url(#prisonStripes)" transform="rotate(14 26 48)"/>
     <!-- neck + head -->
     <rect x="-8" y="18" width="16" height="16" fill="#F0D0AE"/>
     <circle cx="0" cy="0" r="28" fill="#F0D0AE"/>
@@ -129,5 +133,5 @@
   </g>
 
   <!-- question mark over the man -->
-  <text x="460" y="150" font-family="Georgia, serif" font-weight="700" font-size="46" fill="#8C1F3B" text-anchor="middle">?</text>
+  <text x="425" y="205" font-family="Georgia, serif" font-weight="700" font-size="46" fill="#8C1F3B" text-anchor="middle">?</text>
 </svg>
