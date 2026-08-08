@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Квест для именинницы 🎂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="petals" aria-hidden="true">
+    <span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span>
+  </div>
+
+  <div class="scene">
+
+    <header class="topbar">
+      <h1 class="title">Загадай желание — но сначала пройди квест</h1>
+      <div class="dots" id="dots"></div>
+    </header>
+
+    <button id="reset-btn" class="reset-btn" title="Сбросить прогресс (для теста)">↺</button>
+
+    <main class="card" id="game-card">
+      <div class="frame">
+        <img id="level-image" src="images/level1.svg" alt="Загадка уровня">
+        <span class="badge">?</span>
+        <span class="tape tape-l"></span>
+        <span class="tape tape-r"></span>
+      </div>
+
+      <div class="letters" id="letters"></div>
+
+      <p class="feedback" id="feedback">&nbsp;</p>
+
+      <div class="controls">
+        <button id="hint-btn" class="btn btn-hint">💡 Подсказка</button>
+        <button id="check-btn" class="btn btn-check">Проверить ✓</button>
+      </div>
+
+      <p class="counter" id="counter"></p>
+    </main>
+
+    <main class="card final-card" id="final-card" hidden>
+      <div class="envelope" id="envelope">
+        <div class="envelope-body">
+          <div class="envelope-flap"></div>
+          <div class="heart-seal">♥</div>
+        </div>
+      </div>
+      <h2 class="final-title">С днём рождения, любимая! 🎉</h2>
+      <p class="final-sub">Ты прошла весь квест. Внутри тебя ждёт сюрприз.</p>
+      <a id="gift-link" class="btn btn-gift" href="#" target="_blank" rel="noopener">Открыть подарок 🎁</a>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
