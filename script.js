@@ -13,22 +13,11 @@ const LEVELS = [
 // Ссылка на подарок — открывается на последнем экране
 const GOOGLE_DOC_URL = "https://disk.yandex.ru/i/CX6ikZG2aXFxoA";
 
-const STORAGE_KEY = "birthday-quiz-progress-v2";
-
-// ====== СОСТОЯНИЕ ======
-let state = loadState();
-
-function loadState() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
-  } catch (e) {}
-  return { currentLevel: 0, levelStates: LEVELS.map(() => ({})) };
-}
-
-function saveState() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-}
+// ====== СОСТОЯНИЕ (только в памяти — при каждом открытии игра начинается заново) ======
+let state = {
+  currentLevel: 0,
+  levelStates: LEVELS.map(() => ({})),
+};
 
 // ====== DOM ======
 const dotsEl = document.getElementById("dots");
@@ -41,7 +30,6 @@ const counterEl = document.getElementById("counter");
 const gameCard = document.getElementById("game-card");
 const finalCard = document.getElementById("final-card");
 const giftLink = document.getElementById("gift-link");
-const resetBtn = document.getElementById("reset-btn");
 const envelope = document.getElementById("envelope");
 
 giftLink.href = GOOGLE_DOC_URL;
@@ -90,10 +78,12 @@ function renderLevel() {
     input.autocapitalize = "characters";
     input.inputMode = "text";
 
+    // Открытая подсказкой буква ничем не отличается от угаданной —
+    // тот же зелёный фон, то же состояние "закреплено".
     if (lvState.locked[i]) {
       input.value = word[i];
       input.disabled = true;
-      input.classList.add(lvState.hintedIdx && lvState.hintedIdx.includes(i) ? "hinted" : "correct");
+      input.classList.add("correct");
     }
 
     input.addEventListener("input", onLetterInput);
@@ -161,6 +151,9 @@ function onLetterPaste(e) {
   if (last) last.focus();
 }
 
+// Подсказка = угадать одну случайную ещё не открытую букву.
+// С точки зрения механики это то же самое, что верно ввести и нажать "Проверить":
+// буква закрепляется и подсвечивается зелёным, как и любая угаданная буква.
 function useHint() {
   const idx = state.currentLevel;
   const level = LEVELS[idx];
@@ -175,10 +168,20 @@ function useHint() {
 
   const pick = remaining[Math.floor(Math.random() * remaining.length)];
   lvState.locked[pick] = true;
-  lvState.hintedIdx = lvState.hintedIdx || [];
-  lvState.hintedIdx.push(pick);
-  saveState();
   renderLevel();
+
+  // если после подсказки слово оказалось угадано полностью — считаем уровень пройденным
+  if (allLocked(lvState, word.length)) {
+    feedbackEl.textContent = "Верно! 🎉";
+    feedbackEl.className = "feedback";
+    hintBtn.disabled = true;
+    checkBtn.disabled = true;
+    setTimeout(() => {
+      state.currentLevel += 1;
+      checkBtn.disabled = false;
+      renderLevel();
+    }, 1100);
+  }
 }
 
 function checkAnswer() {
@@ -191,7 +194,7 @@ function checkAnswer() {
   let allCorrect = true;
 
   inputs.forEach((input, i) => {
-    if (lvState.locked[i]) return; // already locked from before
+    if (lvState.locked[i]) return; // уже закреплена ранее (в т.ч. подсказкой)
     const val = (input.value || "").toUpperCase();
     if (val === word[i]) {
       lvState.locked[i] = true;
@@ -210,8 +213,6 @@ function checkAnswer() {
   // re-check fully in case some were already locked
   allCorrect = lvState.locked.slice(0, word.length).every(Boolean);
 
-  saveState();
-
   if (allCorrect) {
     feedbackEl.textContent = "Верно! 🎉";
     feedbackEl.className = "feedback";
@@ -219,7 +220,6 @@ function checkAnswer() {
     checkBtn.disabled = true;
     setTimeout(() => {
       state.currentLevel += 1;
-      saveState();
       checkBtn.disabled = false;
       renderLevel();
     }, 1100);
@@ -242,16 +242,6 @@ envelope.addEventListener("click", () => {
 
 hintBtn.addEventListener("click", useHint);
 checkBtn.addEventListener("click", checkAnswer);
-
-resetBtn.addEventListener("click", () => {
-  if (confirm("Сбросить весь прогресс?")) {
-    localStorage.removeItem(STORAGE_KEY);
-    state = loadState();
-    finalCard.hidden = true;
-    gameCard.hidden = false;
-    renderLevel();
-  }
-});
 
 // ====== СТАРТ ======
 renderLevel();

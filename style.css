@@ -12,6 +12,7 @@
   --shadow: 0 20px 40px -12px rgba(92, 30, 45, 0.35);
 }
 
+html{ color-scheme: light; }
 *{box-sizing:border-box;}
 
 html,body{
@@ -152,14 +153,25 @@ html,body{
   width:38px;height:46px;
   border-radius:8px;
   border:2px solid var(--cream-2);
-  background:var(--cream);
+  background:#fff;
   text-align:center;
   font-family:'Nunito', sans-serif;
   font-weight:800;
-  font-size:1.25rem;
-  color:var(--burgundy-dark);
+  font-size:1.3rem;
+  color:var(--ink);
+  -webkit-text-fill-color: var(--ink);
+  opacity:1;
+  -webkit-opacity:1;
   text-transform:uppercase;
   transition: all .2s ease;
+  caret-color: var(--burgundy);
+  appearance:none;
+  -webkit-appearance:none;
+}
+.letter-box:disabled,
+.letter-box:read-only{
+  opacity:1 !important;
+  -webkit-text-fill-color: var(--ink) !important;
 }
 .letter-box:focus{
   outline:none;
@@ -167,15 +179,11 @@ html,body{
   background:#fff;
   box-shadow:0 0 0 3px rgba(201,162,75,0.25);
 }
-.letter-box.hinted{
-  background:var(--blush);
-  border-color:var(--blush);
-  color:var(--burgundy-dark);
-}
 .letter-box.correct{
   background:var(--ok);
   border-color:var(--ok);
   color:#fff;
+  -webkit-text-fill-color: #fff !important;
 }
 .letter-box.shake{
   animation: shake .35s ease;
@@ -235,22 +243,6 @@ html,body{
   color:rgba(43,30,34,0.5);
   margin:14px 0 0;
 }
-
-/* reset button, subtle */
-.reset-btn{
-  position:fixed;
-  top:14px;
-  right:14px;
-  width:34px;height:34px;
-  border-radius:50%;
-  border:none;
-  background:rgba(140,31,59,0.08);
-  color:var(--burgundy);
-  font-size:1rem;
-  cursor:pointer;
-  opacity:0.5;
-}
-.reset-btn:hover{ opacity:1; }
 
 /* final card */
 .final-card{
@@ -368,7 +360,7 @@ html,body{
   .title{ font-size:1.05rem; margin-bottom:14px; }
   .card{ padding:16px 14px 20px; border-radius:18px; }
   .frame{ margin-bottom:14px; }
-  .letter-box{ width:30px; height:38px; font-size:1rem; border-radius:7px; }
+  .letter-box{ width:32px; height:42px; font-size:1.15rem; border-radius:7px; }
   .letters{ gap:6px; }
   .btn{ padding:11px 16px; font-size:0.88rem; }
   .badge{ width:38px; height:38px; font-size:1.2rem; top:-11px; right:-11px; }
