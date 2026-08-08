@@ -150,7 +150,7 @@ html,body{
   margin-bottom:6px;
 }
 .letter-box{
-  width:38px;height:48px;
+  width:50px;height:60px;
   padding:0;
   margin:0;
   border-radius:8px;
@@ -159,8 +159,8 @@ html,body{
   text-align:center;
   font-family:'Nunito', sans-serif;
   font-weight:800;
-  font-size:1.2rem;
-  line-height:44px;
+  font-size:1.4rem;
+  line-height:56px;
   color:var(--ink);
   -webkit-text-fill-color: var(--ink);
   opacity:1;
@@ -364,8 +364,8 @@ html,body{
   .title{ font-size:1.05rem; margin-bottom:14px; }
   .card{ padding:16px 14px 20px; border-radius:18px; }
   .frame{ margin-bottom:14px; }
-  .letter-box{ width:32px; height:40px; font-size:1.05rem; line-height:36px; border-radius:7px; }
-  .letters{ gap:6px; }
+  .letter-box{ width:42px; height:52px; font-size:1.2rem; line-height:48px; border-radius:7px; }
+  .letters{ gap:7px; }
   .btn{ padding:11px 16px; font-size:0.88rem; }
   .badge{ width:38px; height:38px; font-size:1.2rem; top:-11px; right:-11px; }
 }
