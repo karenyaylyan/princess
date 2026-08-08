@@ -1,0 +1,61 @@
+<svg viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAF3EE"/>
+      <stop offset="100%" stop-color="#FBF3EA"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg4)"/>
+
+  <!-- short brunette girl dressed as a bunny -->
+  <g transform="translate(320 270)">
+    <ellipse cx="0" cy="150" rx="36" ry="8" fill="#000" opacity="0.07"/>
+    <!-- legs -->
+    <rect x="-16" y="102" width="13" height="48" rx="6" fill="#F6DCC4"/>
+    <rect x="3" y="102" width="13" height="48" rx="6" fill="#F6DCC4"/>
+    <!-- fluffy tail -->
+    <circle cx="0" cy="128" r="10" fill="#fff" stroke="#F1C6D0" stroke-width="2"/>
+    <!-- bunny costume body -->
+    <path d="M-32 42 Q0 30 32 42 L40 108 Q0 122 -40 108 Z" fill="#fff" stroke="#F1C6D0" stroke-width="2"/>
+    <!-- arms -->
+    <rect x="-46" y="48" width="13" height="42" rx="6" fill="#F6DCC4" transform="rotate(10 -46 48)"/>
+    <rect x="34" y="48" width="13" height="42" rx="6" fill="#F6DCC4" transform="rotate(-10 34 48)"/>
+    <!-- neck + head -->
+    <rect x="-8" y="16" width="16" height="14" fill="#F6DCC4"/>
+    <circle cx="0" cy="-4" r="27" fill="#F6DCC4"/>
+    <!-- brown hair peeking around headband -->
+    <path d="M-27 -6 q-8 34 6 58 q-1 -30 3 -46 z" fill="#3B2620"/>
+    <path d="M27 -6 q8 34 -6 58 q1 -30 -3 -46 z" fill="#3B2620"/>
+    <!-- bunny ear headband -->
+    <g>
+      <ellipse cx="-15" cy="-42" rx="9" ry="30" fill="#fff" stroke="#F3A6B4" stroke-width="2.5" transform="rotate(-10 -15 -42)"/>
+      <ellipse cx="15" cy="-42" rx="9" ry="30" fill="#fff" stroke="#F3A6B4" stroke-width="2.5" transform="rotate(10 15 -42)"/>
+      <ellipse cx="-15" cy="-40" rx="4" ry="19" fill="#F3A6B4" opacity="0.55" transform="rotate(-10 -15 -40)"/>
+      <ellipse cx="15" cy="-40" rx="4" ry="19" fill="#F3A6B4" opacity="0.55" transform="rotate(10 15 -40)"/>
+      <path d="M-24 -14 q24 -14 48 0" stroke="#F1C6D0" stroke-width="5" fill="none" stroke-linecap="round"/>
+    </g>
+    <!-- eyebrows -->
+    <path d="M-13 -8 q5 -3 9 0 M4 -8 q5 -3 9 0" stroke="#3B2620" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <!-- brown eyes -->
+    <ellipse cx="-8" cy="-1" rx="3.6" ry="4.6" fill="#5A3A28"/>
+    <ellipse cx="8" cy="-1" rx="3.6" ry="4.6" fill="#5A3A28"/>
+    <circle cx="-6.5" cy="-2.5" r="1.1" fill="#fff"/>
+    <circle cx="9.5" cy="-2.5" r="1.1" fill="#fff"/>
+    <!-- little bunny nose + smile -->
+    <ellipse cx="0" cy="4" rx="2.4" ry="1.8" fill="#F3A6B4"/>
+    <path d="M-6 10 q6 5 12 0" stroke="#8C4A32" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <!-- whiskers -->
+    <path d="M-18 6 h-14 M-18 9 h-13 M18 6 h14 M18 9 h13" stroke="#D9A9B0" stroke-width="1" opacity="0.7"/>
+    <!-- blush -->
+    <circle cx="-14" cy="6" r="3.6" fill="#F3A6B4" opacity="0.6"/>
+    <circle cx="14" cy="6" r="3.6" fill="#F3A6B4" opacity="0.6"/>
+  </g>
+
+  <text x="320" y="140" font-family="Georgia, serif" font-weight="700" font-size="46" fill="#8C1F3B" text-anchor="middle">?</text>
+
+  <!-- carrot -->
+  <g transform="translate(520 400) rotate(20)">
+    <path d="M0 0 L40 0 L20 60 Z" fill="#E7924B"/>
+    <path d="M14 -6 q6 -14 -2 -18 M20 -6 q0 -16 8 -18 M26 -6 q10 -10 6 -18" stroke="#6FA65C" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>
