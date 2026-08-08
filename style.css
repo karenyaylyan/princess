@@ -150,14 +150,17 @@ html,body{
   margin-bottom:6px;
 }
 .letter-box{
-  width:38px;height:46px;
+  width:38px;height:48px;
+  padding:0;
+  margin:0;
   border-radius:8px;
   border:2px solid var(--cream-2);
   background:#fff;
   text-align:center;
   font-family:'Nunito', sans-serif;
   font-weight:800;
-  font-size:1.3rem;
+  font-size:1.2rem;
+  line-height:44px;
   color:var(--ink);
   -webkit-text-fill-color: var(--ink);
   opacity:1;
@@ -167,6 +170,7 @@ html,body{
   caret-color: var(--burgundy);
   appearance:none;
   -webkit-appearance:none;
+  vertical-align:middle;
 }
 .letter-box:disabled,
 .letter-box:read-only{
@@ -360,7 +364,7 @@ html,body{
   .title{ font-size:1.05rem; margin-bottom:14px; }
   .card{ padding:16px 14px 20px; border-radius:18px; }
   .frame{ margin-bottom:14px; }
-  .letter-box{ width:32px; height:42px; font-size:1.15rem; border-radius:7px; }
+  .letter-box{ width:32px; height:40px; font-size:1.05rem; line-height:36px; border-radius:7px; }
   .letters{ gap:6px; }
   .btn{ padding:11px 16px; font-size:0.88rem; }
   .badge{ width:38px; height:38px; font-size:1.2rem; top:-11px; right:-11px; }
