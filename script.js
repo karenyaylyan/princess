@@ -34,6 +34,44 @@ const envelope = document.getElementById("envelope");
 
 giftLink.href = GOOGLE_DOC_URL;
 
+// ====== ФОНОВАЯ МУЗЫКА ======
+const bgMusic = document.getElementById("bg-music");
+const musicToggle = document.getElementById("music-toggle");
+bgMusic.volume = 0.55;
+let musicMuted = false;
+
+function updateMusicIcon() {
+  musicToggle.textContent = musicMuted ? "🔇" : "🔈";
+  musicToggle.classList.toggle("muted", musicMuted);
+}
+
+function tryPlayMusic() {
+  if (musicMuted) return;
+  bgMusic.play().catch(() => {
+    // автозапуск заблокирован браузером — запустим при первом касании/клике
+    const startOnce = () => {
+      if (!musicMuted) bgMusic.play().catch(() => {});
+      document.removeEventListener("pointerdown", startOnce);
+      document.removeEventListener("keydown", startOnce);
+    };
+    document.addEventListener("pointerdown", startOnce, { once: true });
+    document.addEventListener("keydown", startOnce, { once: true });
+  });
+}
+
+musicToggle.addEventListener("click", () => {
+  musicMuted = !musicMuted;
+  updateMusicIcon();
+  if (musicMuted) {
+    bgMusic.pause();
+  } else {
+    bgMusic.play().catch(() => {});
+  }
+});
+
+updateMusicIcon();
+tryPlayMusic();
+
 // build progress dots
 LEVELS.forEach(() => {
   const d = document.createElement("span");
